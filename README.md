@@ -23,7 +23,7 @@ For KISSY 1.4
 http://docs.kissyui.com/1.4/docs/html/guideline/kmd.html
 
 Author @释剑
-注 ：本适配器的kissy适配部分来自 大神 @墨智 http://nuysoft.com/ 
+注 ：本适配器的kissy适配部分来自 大神 @墨智  
 */
 
 if (!window.define) {
