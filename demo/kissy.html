@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1, maximum-scale=1" />
+<title>adaptdefine test for kissy</title>
+
+<script src="http://g.tbcdn.cn/kissy/k/1.4.5/seed-min.js"></script>
+<script type="text/javascript" src="../src/adaptdefine.js"></script>
+</head>
+
+<body>
+    <script>
+        define("canvax/index" , [] , function(){
+            return {
+                showMe : function(){
+                    alert("Hello world!")
+                }
+            }
+        });
+
+        KISSY.ready(function(S){
+            S.use("canvax/index" , function(S , Canvax){
+                Canvax.showMe();
+            })
+        });
+    </script>
+</body> 
+</html>
