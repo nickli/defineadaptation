@@ -3,14 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1, maximum-scale=1" />
-<title>adaptdefine test for seajs</title>
+<title>adaptdefine test for requirejs</title>
 
-<script src="http://seajs.github.io/examples/sea-modules/seajs/seajs/2.1.1/sea.js"></script>
+<script src="http://requirejs.org/docs/release/2.1.18/minified/require.js"></script>
 <script type="text/javascript" src="../src/umd.js"></script>
 </head>
 
 <body onload="load()">
-    这里是用的seajs的模块加载环境
+    这里用的是requirejs的模块加载环境
     <div id="test" style="width:600px;height:300px;"></div>
     <script>
         UMD.config([
@@ -43,6 +43,8 @@
                 canvax.addChild(stage);
             });
         }
+
+        
     </script>
 </body> 
 </html>

@@ -6,24 +6,45 @@
 <title>adaptdefine test for kissy</title>
 
 <script src="http://g.tbcdn.cn/kissy/k/1.4.5/seed-min.js"></script>
-<script type="text/javascript" src="../src/adaptdefine.js"></script>
+<script type="text/javascript" src="../src/umd.js"></script>
 </head>
 
-<body>
+<body onload="load()">
+    这里用的是kissy的模块加载环境
+    <div id="test" style="width:600px;height:300px;"></div>
     <script>
-        define("canvax/index" , [] , function(){
-            return {
-                showMe : function(){
-                    alert("Hello world!")
-                }
+        UMD.config([
+            {
+                name : "canvax",
+                path : "http://g.tbcdn.cn/thx/canvax/2015.06.06/"
             }
-        });
+        ]);
 
-        KISSY.ready(function(S){
-            S.use("canvax/index" , function(S , Canvax){
-                Canvax.showMe();
-            })
-        });
+
+        function load(){
+            require(["canvax/index" , "canvax/shape/Shapes"] , function( Canvax , Shapes ){
+                var canvax = new Canvax({
+                   el : document.getElementById("test") 
+                })
+                var stage = new Canvax.Display.Stage();
+
+                var circle = new Shapes.Circle({
+                    context : {
+                        x : 100,
+                        y : 100,
+                        r : 50,
+                        fillStyle : 'rgba(220, 20, 60, 0.8)',          // rgba supported
+                        strokeStyle : "#4d7fff",  
+                        lineWidth : 5
+                    }
+                });
+
+                stage.addChild(circle);
+                canvax.addChild(stage);
+            });
+        }
+
+        
     </script>
 </body> 
 </html>

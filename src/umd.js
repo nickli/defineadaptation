@@ -1,22 +1,3 @@
-# 把用AMD规范编写的module适配到KISSY SEAJS 规范中的适配器
-
-* 现在js的module规范里面，很大一部分都是遵循AMD规范，但是还有很多一部分在使用seajs的CMD规范，以及阿里系的KISSY的module规范（我们对其简称KMD）。
-
-* 那么，其实我们可以用遵循AMD规范的module，然后把它适配到能在CMD，KMD的规范中都能跑。
-
-* 这就是umd.js 要做的事情。
-
-我们要用标准的AMD定义module的方式：id deps factory
-
-```js
-define(id , deps ,factory(){
-    
-});
-```
-
-然后加上适配器umd.js
-
-```js
 /*       
 ## 通用模块定义
 Universal Module Definition
@@ -27,6 +8,7 @@ Author @释剑
 你可以放心按照AMD的规范来编写代码，它可以跑再任意的*MD环境里。
 
 */
+
 var UMD = {
     packages : [],
     start : function(){
@@ -160,20 +142,3 @@ var UMD = {
     }
 };
 UMD.start();
-
-```
-
-然后，把需要做适配的包配置好，比如三个demo中用来画圆的canvas库的包配置：
-
-```js
-UMD.config([
-    {
-        name : "canvax",
-        path : "http://g.tbcdn.cn/thx/canvax/2015.06.06/"
-    }
-]);
-```
-
-这样你编写的模块既可以在seajs环境中跑，又可以在KISSY环境中跑。是不是很过瘾
-
-具体可以看demo文件夹中的三demo。
